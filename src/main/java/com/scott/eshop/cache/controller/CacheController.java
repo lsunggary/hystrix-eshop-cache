@@ -1,6 +1,6 @@
 package com.scott.eshop.cache.controller;
 
-import com.scott.eshop.cache.hystrix.GetBrandNameCommand;
+import com.scott.eshop.cache.hystrix.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,10 +11,12 @@ import rx.Observer;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixObservableCommand;
 import com.scott.eshop.cache.utils.HttpClientUtils;
-import com.scott.eshop.cache.hystrix.GetCityNameCommand;
-import com.scott.eshop.cache.hystrix.GetProductInfoCommand;
-import com.scott.eshop.cache.hystrix.GetProductInfosCommand;
 import com.scott.eshop.cache.model.ProductInfo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * 缓存服务的接口
@@ -101,14 +103,31 @@ public class CacheController {
 //
 //		});
 
-		for (String productId : productIds.split(",")) {
-			GetProductInfoCommand getProductInfoCommand = new GetProductInfoCommand(Long.valueOf(productId));
+//		for (String productId : productIds.split(",")) {
+//			GetProductInfoCommand getProductInfoCommand = new GetProductInfoCommand(Long.valueOf(productId));
+//
+//			ProductInfo productInfo = getProductInfoCommand.execute();
+//
+//			System.out.println(productId);
+//			System.out.println(getProductInfoCommand.isResponseFromCache());
+//		}
 
-			ProductInfo productInfo = getProductInfoCommand.execute();
+		List<Future<ProductInfo>> futures = new ArrayList<Future<ProductInfo>>();
 
-			System.out.println(productId);
-			System.out.println(getProductInfoCommand.isResponseFromCache());
+		for (String productId: productIds.split(",")) {
+			GetProductInfosCollapser getProductInfosCollapser = new GetProductInfosCollapser(Long.valueOf(productId));
+			futures.add(getProductInfosCollapser.queue());
 		}
+
+		futures.forEach(productInfoFuture -> {
+			try {
+				System.out.println("CacheController 的结果："+productInfoFuture.get());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
+		});
 
 		return "success";
 	}

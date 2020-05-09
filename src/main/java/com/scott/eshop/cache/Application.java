@@ -45,13 +45,13 @@ public class Application {
         return new DataSourceTransactionManager(dataSource());
     }
 
-//    @Bean
-//    public FilterRegistrationBean hystrixRegistrationBean () {
-//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(
-//                new HystrixRequestContextFilter());
-//        filterRegistrationBean.addUrlPatterns("/*");
-//        return filterRegistrationBean;
-//    }
+    @Bean
+    public FilterRegistrationBean hystrixRegistrationBean () {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(
+                new HystrixRequestContextFilter());
+        filterRegistrationBean.addUrlPatterns("/*");
+        return filterRegistrationBean;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
