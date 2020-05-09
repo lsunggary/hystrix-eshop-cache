@@ -26,11 +26,12 @@ public class GetBrandNameCommand extends HystrixCommand<String> {
                 // 最大线程数
                 .withCoreSize(15)
                 // 当线程满后的最大队列数
-                .withQueueSizeRejectionThreshold(10))
+                .withMaxQueueSize(25)
+                .withQueueSizeRejectionThreshold(20))
         .andCommandPropertiesDefaults(
                 // fallback 限流
                 HystrixCommandProperties.Setter()
-                        .withFallbackIsolationSemaphoreMaxConcurrentRequests(10)
+                        .withFallbackIsolationSemaphoreMaxConcurrentRequests(100)
         )
         );
         this.brandId = brandId;
@@ -38,10 +39,7 @@ public class GetBrandNameCommand extends HystrixCommand<String> {
 
     @Override
     protected String run() throws Exception {
-        System.out.println("进入run()方法");
-        Thread.sleep(10000);
-        System.out.println("本地超时");
-        return null;
+        throw new Exception();
     }
 
     @Override
