@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f794d4d-53ac-4ab4-ad43-4454823ad936" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/FailureModeCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/GetProductInfosCollapser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scott/eshop/cache/FailureModeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/scott/eshop/cache/RequestCollapserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/degrade/IsDegrade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/GetProductInfoFacadeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/GetProductInfoFromMysqlCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scott/eshop/cache/ManuaDegradeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/scott/eshop/cache/MultiLevelFallbackTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/controller/CacheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/controller/CacheController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/GetProductInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/hystrix/GetProductInfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/local/BrandCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/local/BrandCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/local/LocationCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/local/LocationCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/model/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scott/eshop/cache/model/ProductInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/controller/CacheController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/controller/CacheController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/model/ProductInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/model/ProductInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/hystrix/GetProductInfoCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/scott/eshop/cache/hystrix/GetProductInfoCommand.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eshop-product-ha/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -72,7 +70,7 @@
       <recent name="F:\workspace\eshop-cache-ha\src\main\java\com\scott\eshop\cache\local" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StubbedTest">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="FailureModeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.FailureModeTest" />
       <module name="eshop-cache-ha" />
@@ -86,8 +84,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RequestCollapserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.RequestCollapserTest" />
+    <configuration name="ManuaDegradeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.ManuaDegradeTest" />
+      <module name="eshop-cache-ha" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scott.eshop.cache.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultiLevelFallbackTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.MultiLevelFallbackTest" />
       <module name="eshop-cache-ha" />
       <extension name="coverage">
         <pattern>
@@ -101,19 +112,6 @@
     </configuration>
     <configuration name="StubbedTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.StubbedTest" />
-      <module name="eshop-cache-ha" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scott.eshop.cache.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimeoutTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.scott.eshop.cache.TimeoutTest" />
       <module name="eshop-cache-ha" />
       <extension name="coverage">
         <pattern>
@@ -140,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StubbedTest" />
+        <item itemvalue="Application.ManuaDegradeTest" />
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.MultiLevelFallbackTest" />
+        <item itemvalue="Application.StubbedTest" />
         <item itemvalue="Application.FailureModeTest" />
-        <item itemvalue="Application.RequestCollapserTest" />
-        <item itemvalue="Application.TimeoutTest" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +160,8 @@
       <workItem from="1588854873404" duration="4862000" />
       <workItem from="1588942362530" duration="8525000" />
       <workItem from="1589025304419" duration="1022000" />
-      <workItem from="1589027522199" duration="5878000" />
+      <workItem from="1589027522199" duration="6307000" />
+      <workItem from="1589090510818" duration="3796000" />
     </task>
     <servers />
   </component>
@@ -174,10 +173,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="828" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588855750144" />
-    <state x="1291" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1589033283865">
+    <state x="1291" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1589091859782">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1291" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1589033283865" />
+    <state x="1291" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1589091859782" />
     <state x="1267" y="404" width="441" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588854931884">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -190,38 +189,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1201" y="301" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1589029675129" />
-    <state width="804" height="429" key="GridCell.Tab.0.bottom" timestamp="1589034383133">
+    <state width="804" height="429" key="GridCell.Tab.0.bottom" timestamp="1589109372400">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="429" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589034383133" />
-    <state width="804" height="429" key="GridCell.Tab.0.center" timestamp="1589034383133">
+    <state width="804" height="429" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589109372400" />
+    <state width="804" height="429" key="GridCell.Tab.0.center" timestamp="1589109372400">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="429" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589034383133" />
-    <state width="804" height="429" key="GridCell.Tab.0.left" timestamp="1589034383133">
+    <state width="804" height="429" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589109372400" />
+    <state width="804" height="429" key="GridCell.Tab.0.left" timestamp="1589109372400">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="429" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589034383133" />
-    <state width="804" height="429" key="GridCell.Tab.0.right" timestamp="1589034383133">
+    <state width="804" height="429" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589109372400" />
+    <state width="804" height="429" key="GridCell.Tab.0.right" timestamp="1589109372400">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="429" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589034383133" />
-    <state width="804" height="526" key="GridCell.Tab.1.bottom" timestamp="1589032855910">
+    <state width="804" height="429" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589109372400" />
+    <state width="804" height="526" key="GridCell.Tab.1.bottom" timestamp="1589034705094">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="526" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589032855910" />
-    <state width="804" height="526" key="GridCell.Tab.1.center" timestamp="1589032855910">
+    <state width="804" height="526" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1589034705094" />
+    <state width="804" height="526" key="GridCell.Tab.1.center" timestamp="1589034705094">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="526" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589032855910" />
-    <state width="804" height="526" key="GridCell.Tab.1.left" timestamp="1589032855910">
+    <state width="804" height="526" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1589034705094" />
+    <state width="804" height="526" key="GridCell.Tab.1.left" timestamp="1589034705094">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="526" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589032855910" />
-    <state width="804" height="526" key="GridCell.Tab.1.right" timestamp="1589032855910">
+    <state width="804" height="526" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1589034705094" />
+    <state width="804" height="526" key="GridCell.Tab.1.right" timestamp="1589034705094">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="804" height="526" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589032855910" />
+    <state width="804" height="526" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1589034705094" />
     <state x="880" y="188" key="SettingsEditor" timestamp="1588854195527">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

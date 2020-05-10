@@ -1,5 +1,6 @@
 package com.scott.eshop.cache;
 
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import com.scott.eshop.cache.filter.HystrixRequestContextFilter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -7,6 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -51,6 +53,13 @@ public class Application {
                 new HystrixRequestContextFilter());
         filterRegistrationBean.addUrlPatterns("/*");
         return filterRegistrationBean;
+    }
+
+    @Bean
+    public ServletRegistrationBean indexServletRegistration() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new HystrixMetricsStreamServlet());
+        registration.addUrlMappings("/hystrix.stream");
+        return registration;
     }
 
     public static void main(String[] args) {

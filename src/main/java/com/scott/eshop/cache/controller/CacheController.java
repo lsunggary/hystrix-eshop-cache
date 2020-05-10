@@ -1,15 +1,12 @@
 package com.scott.eshop.cache.controller;
 
+import com.scott.eshop.cache.degrade.IsDegrade;
 import com.scott.eshop.cache.hystrix.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import rx.Observable;
-import rx.Observer;
-
 import com.netflix.hystrix.HystrixCommand;
-import com.netflix.hystrix.HystrixObservableCommand;
 import com.scott.eshop.cache.utils.HttpClientUtils;
 import com.scott.eshop.cache.model.ProductInfo;
 
@@ -131,5 +128,11 @@ public class CacheController {
 
 		return "success";
 	}
-	
+
+	@RequestMapping("/isDegrade")
+	@ResponseBody
+	public String isDegrade(boolean degrade) {
+		IsDegrade.setIsDegrade(degrade);
+		return "success";
+	}
 }
